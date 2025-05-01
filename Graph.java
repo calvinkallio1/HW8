@@ -1,6 +1,6 @@
 /******************************************************************
  *
- *   YOUR NAME / SECTION NUMBER
+ *   Calvin Kallio SEC 002
  *
  *   Note, additional comments provided throughout this source code
  *   is for educational purposes
@@ -104,7 +104,41 @@ public class Graph {
   
   public int findRoot() {
 
-    // ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOUR NAME/SECTION AT TOP OF FILE
-    return -1;
+    int[] degrees = new int[numVertices];
+
+    for (int i = 0; i < numVertices; i++){
+
+      for (int neighbor : adjListArr[i]) {
+
+        degrees[neighbor]++;
+
+      }
+
+    }
+
+    int root = -1;
+
+    for (int i = 0; i<numVertices; i++){
+
+      if (degrees[i] == 0){
+
+        if (root != -1){
+
+          return -1;
+
+        }
+
+        root = i;
+
+      }
+
+    }
+
+    if (root == -1){
+      return -1;
+    }
+
+    return vertexValues.get(root);
+
   } 
 }
